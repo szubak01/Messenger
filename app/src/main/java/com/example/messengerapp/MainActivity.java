@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_findfriends_option){
-
+            SendUserToFindFriendsActivity();
         }
 
         if(item.getItemId() == R.id.main_creategroup_option){
@@ -160,9 +160,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void SendUserToSettingsActivity() {
         Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(settingsIntent);
-        finish();
+    }
+
+    private void SendUserToFindFriendsActivity() {
+        Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendsActivity.class);
+        startActivity(findFriendsIntent);
     }
 
     private void VerifyUserExistance(){
@@ -175,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
                 }
-                else
+                //else
                 {
                    // SendUserToSettingsActivity();
                 }

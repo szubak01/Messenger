@@ -133,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if(task.isSuccessful()){
                         loadingBar.dismiss();
                         SendUserToMainActivity();
-                        Toast.makeText(RegisterActivity.this, "User created successfuly!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this, "User created successfuly!", Toast.LENGTH_SHORT).show();
 
                         currentUserID = firebaseAuth.getCurrentUser().getUid();
                         // save user data to database
@@ -148,7 +148,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     else
                     {
                         loadingBar.dismiss();
-                        String message = task.getException().getMessage().toString();
+                        String message = task.getException().getMessage();
                         Toast.makeText(RegisterActivity.this, "Error!" + message, Toast.LENGTH_LONG).show();
                     }
                 }
