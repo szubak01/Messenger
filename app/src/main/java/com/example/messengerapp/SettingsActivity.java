@@ -96,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
          username = findViewById(R.id.setUsername);
          email = findViewById(R.id.setEmail);
          userProfileImage = findViewById(R.id.setProfileImage);
-        mToolbar = (Toolbar) findViewById(R.id.settings_toolbar);
+         mToolbar = (Toolbar) findViewById(R.id.settings_toolbar);
     }
 
 
@@ -111,7 +111,6 @@ public class SettingsActivity extends AppCompatActivity {
             // start picker to get image for cropping and then use the image in cropping activity
             CropImage.activity()
                     .setGuidelines(CropImageView.Guidelines.ON)
-                    .setAspectRatio(1, 1)
                     .start(this);
         }
 
@@ -173,7 +172,14 @@ public class SettingsActivity extends AppCompatActivity {
                     //using the method from picasso library to display the image to user
                     Picasso.get().load(retrieveProfileImage).into(userProfileImage);
                     userProfileImage.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    String retrieveUsername = snapshot.child("username").getValue().toString();
+                    String retrieveEmail = snapshot.child("email").getValue().toString();
 
+                    username.setText(retrieveUsername);
+                    email.setText(retrieveEmail);
                 }
             }
             @Override
