@@ -108,15 +108,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Log.d("RegisterActivity", "Password is: " + password);
 
             if(TextUtils.isEmpty(username)){
-                etUsernameRegister.setError("Username is requried.");
+                etUsernameRegister.setError("Username is required.");
                 return;
             }
             if(TextUtils.isEmpty(email)){
-                etEmailRegister.setError("E-mail is requried.");
+                etEmailRegister.setError("E-mail is required.");
                 return;
             }
             if(TextUtils.isEmpty(password)){
-                etPasswordRegister.setError("Password is requried.");
+                etPasswordRegister.setError("Password is required.");
                 return;
             }
 
@@ -133,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if(task.isSuccessful()){
                         loadingBar.dismiss();
                         SendUserToMainActivity();
-                        Toast.makeText(RegisterActivity.this, "User created successfuly!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "User created successfully!", Toast.LENGTH_SHORT).show();
 
                         currentUserID = firebaseAuth.getCurrentUser().getUid();
                         // save user data to database
